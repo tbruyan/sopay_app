@@ -1,0 +1,59 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+Activate new account on {{ parent() }}
+{% endblock %}
+
+{% block content %}
+<div class="about-area area-padding" style="background-color: rgb(190, 215, 226);">
+    <div class="container" style="margin-top: 45px;">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Activate your Account</h2>
+              </div>
+            </div>
+          </div>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <p class="mb-4">Account activated successffully</p>
+                                            <h4 id="errorTag" style="display: none;"></h4>
+                                    </div>
+                                    <form class="user" id="resetPass">
+                                        
+                                        <a href="{{ path('sopay_login')}}" type="button" class="btn btn-primary btn-block" >Sing In now</a>
+                                        
+                                    </form>
+                                    <hr>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+    {% endblock %}
+    {% block script %}
+   <script>
+        $(document).ready(function(){
+            setTimeout(function(){ window.location.href = "{{ path('sopay_login') }}"; }, 5000);
+        });
+    </script>
+    {% endblock %}

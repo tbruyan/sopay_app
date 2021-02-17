@@ -1,0 +1,27 @@
+# Full configuration reference: https://github.com/csarrazi/CsaGuzzleBundle/blob/2.x/src/Resources/doc/configuration_reference.md#configuration-reference
+# Available client config options: http://docs.guzzlephp.org/en/latest/quickstart.html#creating-a-client
+# and http://docs.guzzlephp.org/en/latest/request-options.html
+csa_guzzle:
+    profiler: '%kernel.debug%'
+    clients:
+        default: null
+#        my_client:
+#            config:
+#                base_uri: 'http://example.com'
+
+        sms_api:
+            config:
+                base_uri: 'https://sms.xpiment.com'          
+                headers:
+                    X-Callback-Url: 'https://app.soleaspay.com'
+                    Content-Type: 'application/json'
+                    
+        sopay_api:
+            config:
+                base_uri: 'http://localhost'         
+                #base_uri: 'https://soleaspay.com'          
+                headers:
+                    callback: 'https://app.soleaspay.com'
+                    Content-Type: 'application/json'
+                    #operation: '1'
+                    #x-api-key: 'OjRGehXWz1kQVcOISThO1Rm1ff_zN99EDfxPoJkf0GU'

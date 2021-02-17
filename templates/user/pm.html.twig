@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>SoPay Perfect money confirmation</title>
+    </head>
+<body style="display: flex; justify-content:center; margin-top:100px; min-width:70%">
+    <div style="display: flex; flex-direction:column; justify-content:space-between; margin:auto ">       
+
+    <div >
+        <img src="{{ asset('assets/img/pm.jpeg') }}" style="cursor:pointer;margin-left:30%; height: 150px; width:150px;">
+        </div>
+    <div>
+        <h3 style="font-size: 1.2em;">Sopay Perfect Money payment confirmation</h3>
+        
+        </div>
+   <div>
+        <form action="https://perfectmoney.com/api/step1.asp" method="POST">
+          <input type="hidden" name="PAYEE_ACCOUNT" value="U13612927">
+          <input type="hidden" name="PAYEE_NAME" value="MYSOLEAS">
+          <input type="hidden" name="PAYMENT_ID" value="{{ref}}">
+          <input type="hidden" name="PAYMENT_AMOUNT" value="{{amount}}">
+          <input type="hidden" name="PAYMENT_UNITS" value="USD">
+          <input type="hidden" name="STATUS_URL" value="https://soleaspay.com/receive-pm">
+          <input type="hidden" name="PAYMENT_URL" value="https://app.soleaspay.com/dashboard">
+          <input type="hidden" name="PAYMENT_URL_METHOD" value="GET">
+          <input type="hidden" name="NOPAYMENT_URL" value="https://app.soleaspay.com/dashboard">
+          <input type="hidden" name="NOPAYMENT_URL_METHOD" value="GET">
+          <input type="hidden" name="SUGGESTED_MEMO" value="SoPay Payment">
+          <input type="hidden" name="BAGGAGE_FIELDS" value="">
+          <input type="submit" name="PAYMENT_METHOD" value="Clic here to Proceed Pay!" style="cursor:pointer; height:50px; width:100%; background-color:#0096ff; border-radius:10px ">
+          </form>
+</div>
+</div>
+</body>    
+</html>

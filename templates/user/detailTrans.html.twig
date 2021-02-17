@@ -1,0 +1,27 @@
+<div>
+    {% set dateFormat = transaction.proceed_at|split('T') %}
+    <ul>
+        <li>Type : {{ transaction.operation.name }}</li>
+        <li>Proceed At : {{ dateFormat[1]|split('-')[0] }} on {{dateFormat[0]|split('-')[2]}}-{{dateFormat[0]|split('-')[1]}}</li>
+        <li> Document No : {{transaction.ext_id}}</li>
+        {% if transaction.operation.name == 'DEPOSIT' or transaction.operation.name == 'WITHDRAW' or transaction.operation.name == 'PURCHASE' %}
+        <li> Service : {{transaction.service.name}}</li>
+        <li> Wallet : {{transaction.wallet}}</li>
+        <li> Amount : {{transaction.amount}} {{transaction.currency}}</li>
+        {% elseif transaction.operation.name == 'CHANGES' %}
+        <li> From : {{transaction.in_service.name}}</li>
+        <li> To : {{transaction.out_service.name}}</li>
+        <li>Sender Wallet : {{transaction.in_wallet}}</li>
+        <li>Out Wallet : {{transaction.out_wallet}}</li>
+        {% elseif transaction.operation.name == 'TRANSFERT' %}
+            {% if transaction.user.matricule == user.matricule %}
+            <li> to : {{transaction.receiver.matricule}}</li>
+            {% else %}
+            <li> From : {{transaction.user.matricule}}</li>
+            {% endif %}
+            <li> Amount : {{transaction.amount}} {{transaction.currency}}</li>
+        {% endif %}
+        <li> Status : {{transaction.status}}</li>
+        
+    </ul>
+</div>

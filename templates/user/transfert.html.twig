@@ -1,0 +1,83 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">{{'Transfert Funds'|trans}}</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+      class="fas fa-download fa-sm text-white-50"></i> <span id='rate'></span></a>
+    </div>
+    <div class="row justify-content-center"> 
+      <div class="d-block d-md-flex col-lg-4">
+    <form method="post" class="align-items-center" style="min-height:300px; margin:50px">
+      <div id='transfert'>
+        {% if error is defined %}
+              <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+              {% endif %}
+        
+      <h3 style="text-align: center; margin-bottom: 20px">{{'Your allready'|trans}}</h3>
+      
+      <div class='form-group'><input class='form-control' type='receiver' name='receiver' id="receiver" placeholder="{{'Receiver Matricule'|trans}}" ></div>
+      <div class='form-group'><input class='form-control' type='number' name='credit' id='amount' placeholder='{{'Amount in '|trans}} {{ user.default_currency.code}}' required autofocus></div>
+      <div class="form-group" ><button class="btn btn-primary btn-block" type="submit">{{'Send'|trans}}</button>
+      </div>
+      </div>
+  
+    </form>
+    </div>
+    <div class='d-block d-md-flex col-lg-4'>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center" id="listReferral">
+          <caption class="text-center bg-primary" style="font-size: x-large; caption-side:top; color:black">{{'Your referal team'|trans}}</caption>
+          <tr>
+            <th>Account</th>
+            <th>Username</th>
+            <th>Contact</th>
+            <th>Last Operation</th>
+          </tr>
+        </table>
+        <!-- Start single blog -->
+      </div>
+    </div>
+    </div>
+  <script type="text/javascript">
+  $(document).ready(function(){
+  window.history.pushState("", "", '#transfert-funds');
+  //CONTACT API PAIEMENT
+  var receiver;
+  var amount;
+  //VALEUR ACTUELLE DU JETON XPI
+  $.ajax({
+       url: "https://soleaspay.com/convert",
+       type: "GET",
+       dataType: "JSON",
+       data: {amount: '1',
+              devise: 'XPI'},
+       success:function(data)
+        {
+             xafValue = parseInt(data.data.XAF);
+          usdValue = data.data.USD;
+          $('#rate').text('1 XPI = '+xafValue+' FCFA');
+        }
+    });
+  
+  $('form').on('submit', function(e){
+      e.preventDefault();
+      amount = $('#amount').val();
+      receiver = $('#receiver').val();
+     
+       $.ajax({
+       url: "{{ path('sopay_transfert') }}",
+       type: "POST",
+       dataType: "JSON",
+       data: {amount: amount,
+              receiver: receiver},
+       success:function(data)
+        { 
+            alert(data.message);
+            location.reload();
+        }
+    });
+  });
+  var referrals = JSON.parse({{(referrals|json_encode|raw)}}).data;
+  for (let i=0; i<referrals.length; i++){
+    $('#listReferral').append('<tr><td class="table-success">'+referrals[i].matricule+'</td><td>'+referrals[i].username+'</td><td>'+referrals[i].contact+'</td><td>'+referrals[i].last_operation+'</td></tr>');
+  }
+  });
+  </script>
