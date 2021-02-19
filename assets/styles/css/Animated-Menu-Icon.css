@@ -1,0 +1,22 @@
+.mm-container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mm-bar1, .mm-bar2, .mm-bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+}
+
+.d-flex.justify-content-between.align-items-center {
+}
+
+.d-flex.justify-content-between.align-items-center {
+}
+
