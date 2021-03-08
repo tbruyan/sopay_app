@@ -1302,7 +1302,7 @@ class __TwigTemplate_391dba4a9486de8269efcb523024242eaa116580bf8a4b223e4add7d807
           <div class=\"table-responsive\">
             <table class=\"table table-bordered table-hover text-center\">
               <caption class=\"text-center bg-primary\" style=\"font-size: x-large;\">Sopay Live Exchange Rates</caption>
-              <tr>
+            <tr>
                 <th class=\"text-center\">Currencies/values</th>
                 <th class=\"text-center\"><img style=\"max-height: 36px;\" src=\"/sopay/public/assets/img/xaf.svg\"> XAF</th>
                 <th class=\"text-center\"><img style=\"max-height: 36px;\" src=\"/sopay/public/assets/img/usd.svg\"> USD</th>
@@ -1341,7 +1341,7 @@ class __TwigTemplate_391dba4a9486de8269efcb523024242eaa116580bf8a4b223e4add7d807
               <tr>
                 <td class=\"warning\">1 EUR</td>
                 <td><span id=\"eur_xaf\">XAF</span></td>
-                <td><span id=\"eur_usd\">USD<span</td>
+                <td><span id=\"eur_usd\">USD</span></td>
                 <td class=\"warning\">1</td>
                 <td><span id=\"eur_btc\">BTC</span></td>
                 <td><span id=\"eur_eth\">ETH</span></td>
@@ -2462,7 +2462,7 @@ class __TwigTemplate_391dba4a9486de8269efcb523024242eaa116580bf8a4b223e4add7d807
           <div class=\"table-responsive\">
             <table class=\"table table-bordered table-hover text-center\">
               <caption class=\"text-center bg-primary\" style=\"font-size: x-large;\">Sopay Live Exchange Rates</caption>
-              <tr>
+            <tr>
                 <th class=\"text-center\">Currencies/values</th>
                 <th class=\"text-center\"><img style=\"max-height: 36px;\" src=\"/sopay/public/assets/img/xaf.svg\"> XAF</th>
                 <th class=\"text-center\"><img style=\"max-height: 36px;\" src=\"/sopay/public/assets/img/usd.svg\"> USD</th>
@@ -2501,7 +2501,7 @@ class __TwigTemplate_391dba4a9486de8269efcb523024242eaa116580bf8a4b223e4add7d807
               <tr>
                 <td class=\"warning\">1 EUR</td>
                 <td><span id=\"eur_xaf\">XAF</span></td>
-                <td><span id=\"eur_usd\">USD<span</td>
+                <td><span id=\"eur_usd\">USD</span></td>
                 <td class=\"warning\">1</td>
                 <td><span id=\"eur_btc\">BTC</span></td>
                 <td><span id=\"eur_eth\">ETH</span></td>
